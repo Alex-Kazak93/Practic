@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+		<script type="text/javascript">
+		function readInt() {
+			return +document.getElementById('userAnswer').value;
+		}
+		function write(text) {
+			return document.getElementById('info').innerHTML = text;
+		}
+		
+		function gen_password(len) {
+			var password = "";
+			var symbols =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+			for(i = 0; i < len; i++) {
+				password += symbols.charAt(Math.floor(Math.random() * symbols.length));
+			}
+			write(password);
+			return password;
+	}
+		function GET() {
+			var userAnswer = readInt();
+			gen_password(userAnswer);
+		}
+			
+	</script>
+</head>
+<body>
+
+		<h2>Генератор случайных паролей</h2>
+
+	<h3>Введите желаемую длину пароля</h3>
+
+	<input type="text" id="userAnswer" placeholder="Введите желаемую длину">
+	<h4 id='info'></h4>
+	<input type="submit" value="Дальше" onclick="GET()">
+
+
+</body>
+</html>
